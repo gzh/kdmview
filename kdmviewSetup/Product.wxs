@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Wix xmlns="http://schemas.microsoft.com/wix/2006/wi">
+	<Product Id="*" Name="kdmview" Language="1033" Version="1.0.0.0" Manufacturer="kinotehnik.net" UpgradeCode="e3e7481d-e0cb-4f42-8cbe-34da480bebc2">
+		<Package InstallerVersion="200" Compressed="yes" InstallScope="perMachine" />
+
+		<MajorUpgrade DowngradeErrorMessage="A newer version of [ProductName] is already installed." />
+		<MediaTemplate EmbedCab="yes" />
+
+		<Feature Id="ProductFeature" Title="kdmview" Level="1">
+			<ComponentGroupRef Id="ProductComponents" />
+		</Feature>
+	</Product>
+
+	<Fragment>
+		<Directory Id="TARGETDIR" Name="SourceDir">
+			<Directory Id="ProgramFilesFolder">
+        <Directory Id="INSTALLFOLDER" Name="kdmview">
+          <Directory Id="kdmviewUk" Name="uk-UA"/>
+          <Directory Id="kdmviewRu" Name="ru"/>
+        </Directory>
+			</Directory>
+      <Directory Id="ProgramMenuFolder"/>
+    </Directory>
+	</Fragment>
+
+	<Fragment>
+    <Component Id="kdmviewBinaries" Directory="INSTALLFOLDER">
+      <File Id="kdmview.exe" Source="$(var.SolutionDir)\kdmview\bin\Release\kdmview.exe"/>
+    </Component>
+    <Component Id="ShortcutComponent" Directory="ProgramMenuFolder">
+      <Shortcut Id="ApplicationStartMenuShortcut"
+                Name="KDM viewer"
+                Description="View and manage KDM files"
+                Directory="ProgramMenuFolder"
+                Target="[#kdmview.exe]"
+                WorkingDirectory="INSTALLFOLDER"/>
+      <RegistryValue Root="HKCU" Key="Software\kinotehnik.net\kdmview" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
+    </Component>
+    <Component Id="kdmviewBinRu" Directory="kdmviewRu">
+      <File Id="kdmview.resources.dll.ru" 
+            Name="kdmview.resources.dll" 
+            Source="$(var.SolutionDir)\kdmview\bin\Release\ru\kdmview.resources.dll"/>
+    </Component>
+    <Component Id="kdmviewBinUk" Directory="kdmviewUk">
+      <File Id="kdmview.resources.dll.uk"
+            Name="kdmview.resources.dll"
+            Source="$(var.SolutionDir)\kdmview\bin\Release\uk-UA\kdmview.resources.dll"/>
+    </Component>
+		<ComponentGroup Id="ProductComponents" Directory="INSTALLFOLDER">
+			<!-- TODO: Remove the comments around this Component element and the ComponentRef below in order to add resources to this installer. -->
+			<!-- <Component Id="ProductComponent"> -->
+				<!-- TODO: Insert files, registry keys, and other resources here. -->
+			<!-- </Component> -->
+      <ComponentRef Id="kdmviewBinaries"/>
+      <ComponentRef Id="kdmviewBinRu"/>
+      <ComponentRef Id="kdmviewBinUk"/>
+      <ComponentRef Id="ShortcutComponent"/>
+    </ComponentGroup>
+	</Fragment>
+</Wix>

@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="KdmDataSet" targetNamespace="http://tempuri.org/DataSet1.xsd" xmlns:mstns="http://tempuri.org/DataSet1.xsd" xmlns="http://tempuri.org/DataSet1.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="KdmDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="KdmDataSet" msprop:Generator_UserDSName="KdmDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="kdMessages" msprop:Generator_TableClassName="kdMessagesDataTable" msprop:Generator_TableVarName="tablekdMessages" msprop:Generator_RowChangedName="kdMessagesRowChanged" msprop:Generator_TablePropName="kdMessages" msprop:Generator_RowDeletingName="kdMessagesRowDeleting" msprop:Generator_RowChangingName="kdMessagesRowChanging" msprop:Generator_RowEvHandlerName="kdMessagesRowChangeEventHandler" msprop:Generator_RowDeletedName="kdMessagesRowDeleted" msprop:Generator_RowClassName="kdMessagesRow" msprop:Generator_UserTableName="kdMessages" msprop:Generator_RowEvArgName="kdMessagesRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="MessageId" msdata:DataType="System.Guid, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" msprop:Generator_ColumnVarNameInTable="columnMessageId" msprop:Generator_ColumnPropNameInRow="MessageId" msprop:Generator_ColumnPropNameInTable="MessageIdColumn" msprop:Generator_UserColumnName="MessageId" type="xs:string" minOccurs="0" />
+              <xs:element name="AnnotationText" msprop:Generator_ColumnVarNameInTable="columnAnnotationText" msprop:Generator_ColumnPropNameInRow="AnnotationText" msprop:Generator_ColumnPropNameInTable="AnnotationTextColumn" msprop:Generator_UserColumnName="AnnotationText" type="xs:string" minOccurs="0" />
+              <xs:element name="ContentTitleText" msprop:Generator_ColumnVarNameInTable="columnContentTitleText" msprop:Generator_ColumnPropNameInRow="ContentTitleText" msprop:Generator_ColumnPropNameInTable="ContentTitleTextColumn" msprop:Generator_UserColumnName="ContentTitleText" type="xs:string" minOccurs="0" />
+              <xs:element name="ContentKeysNotValidBefore" msprop:Generator_ColumnVarNameInTable="columnContentKeysNotValidBefore" msprop:Generator_ColumnPropNameInRow="ContentKeysNotValidBefore" msprop:Generator_ColumnPropNameInTable="ContentKeysNotValidBeforeColumn" msprop:Generator_UserColumnName="ContentKeysNotValidBefore" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="ContentKeysNotValidAfter" msprop:Generator_ColumnVarNameInTable="columnContentKeysNotValidAfter" msprop:Generator_ColumnPropNameInRow="ContentKeysNotValidAfter" msprop:Generator_ColumnPropNameInTable="ContentKeysNotValidAfterColumn" msprop:Generator_UserColumnName="ContentKeysNotValidAfter" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="RecipientSubject" msprop:Generator_ColumnVarNameInTable="columnRecipientSubject" msprop:Generator_ColumnPropNameInRow="RecipientSubject" msprop:Generator_ColumnPropNameInTable="RecipientSubjectColumn" msprop:Generator_UserColumnName="RecipientSubject" type="xs:string" minOccurs="0" />
+              <xs:element name="Filename" msprop:Generator_ColumnVarNameInTable="columnFilename" msprop:Generator_ColumnPropNameInRow="Filename" msprop:Generator_ColumnPropNameInTable="FilenameColumn" msprop:Generator_UserColumnName="Filename" type="xs:string" minOccurs="0" />
+              <xs:element name="FilenameShort" msprop:Generator_ColumnVarNameInTable="columnFilenameShort" msprop:Generator_ColumnPropNameInRow="FilenameShort" msprop:Generator_ColumnPropNameInTable="FilenameShortColumn" msprop:Generator_UserColumnName="FilenameShort" type="xs:string" minOccurs="0" />
+              <xs:element name="RecipientSubjectAlias" msprop:Generator_ColumnVarNameInTable="columnRecipientSubjectAlias" msprop:Generator_ColumnPropNameInRow="RecipientSubjectAlias" msprop:Generator_ColumnPropNameInTable="RecipientSubjectAliasColumn" msprop:Generator_UserColumnName="RecipientSubjectAlias" type="xs:string" minOccurs="0" />
+              <xs:element name="Expired" msprop:Generator_ColumnVarNameInTable="columnExpired" msprop:Generator_ColumnPropNameInRow="Expired" msprop:Generator_ColumnPropNameInTable="ExpiredColumn" msprop:Generator_UserColumnName="Expired" type="xs:boolean" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+        <xs:element name="RecipientAlias" msprop:Generator_TableClassName="RecipientAliasDataTable" msprop:Generator_TableVarName="tableRecipientAlias" msprop:Generator_RowChangedName="RecipientAliasRowChanged" msprop:Generator_TablePropName="RecipientAlias" msprop:Generator_RowDeletingName="RecipientAliasRowDeleting" msprop:Generator_RowChangingName="RecipientAliasRowChanging" msprop:Generator_RowEvHandlerName="RecipientAliasRowChangeEventHandler" msprop:Generator_RowDeletedName="RecipientAliasRowDeleted" msprop:Generator_RowClassName="RecipientAliasRow" msprop:Generator_UserTableName="RecipientAlias" msprop:Generator_RowEvArgName="RecipientAliasRowChangeEvent">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="Recipient" msprop:Generator_ColumnVarNameInTable="columnRecipient" msprop:Generator_ColumnPropNameInRow="Recipient" msprop:Generator_ColumnPropNameInTable="RecipientColumn" msprop:Generator_UserColumnName="Recipient" type="xs:string" minOccurs="0" />
+              <xs:element name="Alias" msprop:Generator_ColumnVarNameInTable="columnAlias" msprop:Generator_ColumnPropNameInRow="Alias" msprop:Generator_ColumnPropNameInTable="AliasColumn" msprop:Generator_UserColumnName="Alias" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>
