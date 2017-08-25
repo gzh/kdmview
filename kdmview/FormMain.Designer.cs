@@ -36,14 +36,14 @@
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripEditAliases = new System.Windows.Forms.ToolStripButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
-            this.kdMessagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.kdmDataSet = new kdmview.KdmDataSet();
             this.contentTitleTextDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.recipientSubjectAliasDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.expiredDataGridViewCheckBoxColumn = new System.Windows.Forms.DataGridViewCheckBoxColumn();
             this.contentKeysNotValidBeforeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contentKeysNotValidAfterDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.filenameShortDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.kdMessagesBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.kdmDataSet = new kdmview.KdmDataSet();
             this.toolStrip1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.kdMessagesBindingSource)).BeginInit();
@@ -52,44 +52,43 @@
             // 
             // toolStrip1
             // 
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripOpenFolder,
             this.toolStripRemove,
             this.toolStripSeparator1,
             this.toolStripEditAliases});
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
             // 
             // toolStripOpenFolder
             // 
-            resources.ApplyResources(this.toolStripOpenFolder, "toolStripOpenFolder");
             this.toolStripOpenFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripOpenFolder, "toolStripOpenFolder");
             this.toolStripOpenFolder.Name = "toolStripOpenFolder";
             this.toolStripOpenFolder.Click += new System.EventHandler(this.toolStripOpenFolder_Click);
             // 
             // toolStripRemove
             // 
-            resources.ApplyResources(this.toolStripRemove, "toolStripRemove");
             this.toolStripRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripRemove, "toolStripRemove");
             this.toolStripRemove.Name = "toolStripRemove";
             this.toolStripRemove.Click += new System.EventHandler(this.toolStripRemove_Click);
             // 
             // toolStripSeparator1
             // 
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
             // 
             // toolStripEditAliases
             // 
-            resources.ApplyResources(this.toolStripEditAliases, "toolStripEditAliases");
             this.toolStripEditAliases.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripEditAliases.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            resources.ApplyResources(this.toolStripEditAliases, "toolStripEditAliases");
             this.toolStripEditAliases.Name = "toolStripEditAliases";
             this.toolStripEditAliases.Click += new System.EventHandler(this.toolStripEditAliases_Click);
             // 
             // dataGridView
             // 
-            resources.ApplyResources(this.dataGridView, "dataGridView");
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoGenerateColumns = false;
@@ -102,20 +101,11 @@
             this.contentKeysNotValidAfterDataGridViewTextBoxColumn,
             this.filenameShortDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.kdMessagesBindingSource;
+            resources.ApplyResources(this.dataGridView, "dataGridView");
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridView_KeyDown);
-            // 
-            // kdMessagesBindingSource
-            // 
-            this.kdMessagesBindingSource.DataMember = "kdMessages";
-            this.kdMessagesBindingSource.DataSource = this.kdmDataSet;
-            // 
-            // kdmDataSet
-            // 
-            this.kdmDataSet.DataSetName = "KdmDataSet";
-            this.kdmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // contentTitleTextDataGridViewTextBoxColumn
             // 
@@ -160,6 +150,16 @@
             resources.ApplyResources(this.filenameShortDataGridViewTextBoxColumn, "filenameShortDataGridViewTextBoxColumn");
             this.filenameShortDataGridViewTextBoxColumn.Name = "filenameShortDataGridViewTextBoxColumn";
             this.filenameShortDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // kdMessagesBindingSource
+            // 
+            this.kdMessagesBindingSource.DataMember = "kdMessages";
+            this.kdMessagesBindingSource.DataSource = this.kdmDataSet;
+            // 
+            // kdmDataSet
+            // 
+            this.kdmDataSet.DataSetName = "KdmDataSet";
+            this.kdmDataSet.SchemaSerializationMode = System.Data.SchemaSerializationMode.IncludeSchema;
             // 
             // FormMain
             // 

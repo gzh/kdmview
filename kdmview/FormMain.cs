@@ -114,6 +114,8 @@ namespace kdmview
                 loadFile(f);
             }
 
+            clearUnusedAliases();
+
             setFileWatcher();
 
             this.Text = "kdmview :: " + this.selectedPath;
@@ -246,19 +248,15 @@ namespace kdmview
         }
         private void removeSelected()
         {
+            var res=MessageBox.Show(string.Format("Really remove {0} items? WARNING: This action is irreversible!", 
+                this.dataGridView.SelectedRows.Count), "Confirm removal",
+                MessageBoxButtons.OKCancel, MessageBoxIcon.Question);
+            if (res != DialogResult.OK)
+                return;
             foreach (DataGridViewRow r in this.dataGridView.SelectedRows)
             {
                 var x = (r.DataBoundItem as System.Data.DataRowView).Row as kdmview.KdmDataSet.kdMessagesRow;
-                string trashcan = selectedPath + "\\.kdmview.trashcan\\";
-                if (!Directory.Exists(trashcan))
-                {
-                    Directory.CreateDirectory(trashcan);
-                }
-                var backupname = trashcan + Path.GetFileName(x.Filename);
-                if (!File.Exists(backupname))
-                    File.Move(x.Filename, backupname);
-                else
-                    File.Delete(x.Filename);
+                File.Delete(x.Filename);
             }
         }
 
@@ -280,6 +278,21 @@ namespace kdmview
                 this.kdmDataSet.RecipientAlias.WriteXml(isoStream);
             }
             reload();
+        }
+        private void clearUnusedAliases()
+        {
+            List<System.Data.DataRow> toRemove = new List<System.Data.DataRow>();
+            foreach (var x in kdmDataSet.RecipientAlias.Rows)
+            {
+                var xx = (x as KdmDataSet.RecipientAliasRow);
+                string a = xx.IsAliasNull() ? null : xx.Alias;
+                string r = xx.Recipient;
+                if (string.IsNullOrEmpty(a) && kdmDataSet.kdMessages.Select("RecipientSubject = '" + r + "'").Length == 0)
+                    toRemove.Add(x as System.Data.DataRow);
+            }
+            toRemove.Reverse();
+            foreach (var x in toRemove)
+                kdmDataSet.RecipientAlias.Rows.Remove(x);
         }
 
         private void dataGridView_KeyDown(object sender, KeyEventArgs e)
