@@ -18,10 +18,19 @@ namespace kdmview
     {
         XmlNamespaceManager nsm = new XmlNamespaceManager(new NameTable());
         IsolatedStorageFile isoStore;
+        string appDataPath;
+        string recipientAliasesPath;
+
         public FormMain()
         {
             nsm.AddNamespace("etm", "http://www.smpte-ra.org/schemas/430-3/2006/ETM");
             nsm.AddNamespace("kdm", "http://www.smpte-ra.org/schemas/430-1/2006/KDM");
+
+            appDataPath=Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.CommonApplicationData), "kdmviewer");
+            if (!Directory.Exists(appDataPath))
+                Directory.CreateDirectory(appDataPath);
+
+            recipientAliasesPath = Path.Combine(appDataPath, "RecipientAliases.xml");
 
             isoStore = IsolatedStorageFile.GetStore(IsolatedStorageScope.Machine | IsolatedStorageScope.Assembly, 
                 null, null);
@@ -226,13 +235,13 @@ namespace kdmview
 
         private void loadAliases()
         {
-            if (isoStore.FileExists("RecipientAliases.xml"))
+            if (File.Exists(recipientAliasesPath))
             {
-                using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("RecipientAliases.xml", FileMode.Open, isoStore))
+                using (FileStream stream = new FileStream(recipientAliasesPath, FileMode.Open, FileAccess.Read))
                 {
                     try
                     {
-                        this.kdmDataSet.RecipientAlias.ReadXml(isoStream);
+                        this.kdmDataSet.RecipientAlias.ReadXml(stream);
                     }
                     catch(Exception e)
                     {
@@ -273,9 +282,9 @@ namespace kdmview
             FormAliases fa = new FormAliases(this.kdmDataSet);
             
             fa.ShowDialog();
-            using (IsolatedStorageFileStream isoStream = new IsolatedStorageFileStream("RecipientAliases.xml", FileMode.Create, isoStore))
+            using (FileStream stream = new FileStream(recipientAliasesPath, FileMode.Create, FileAccess.Write))
             {
-                this.kdmDataSet.RecipientAlias.WriteXml(isoStream);
+                this.kdmDataSet.RecipientAlias.WriteXml(stream);
             }
             reload();
         }
@@ -304,6 +313,15 @@ namespace kdmview
             if (e.KeyCode == Keys.Space)
             {
                 this.dataGridView.CurrentRow.Selected = !this.dataGridView.CurrentRow.Selected;
+            }
+        }
+
+        private void toolStripSelectExpired_Click(object sender, EventArgs e)
+        {
+            for(int k=0; k<this.dataGridView.Rows.Count; ++k)
+            {
+                DataRowView d = (DataRowView)this.dataGridView.Rows[k].DataBoundItem;
+                this.dataGridView.Rows[k].Selected = (d.Row as KdmDataSet.kdMessagesRow).Expired;
             }
         }
     }

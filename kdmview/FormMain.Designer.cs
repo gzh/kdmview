@@ -33,6 +33,7 @@
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripOpenFolder = new System.Windows.Forms.ToolStripButton();
             this.toolStripRemove = new System.Windows.Forms.ToolStripButton();
+            this.toolStripSelectExpired = new System.Windows.Forms.ToolStripButton();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
             this.toolStripEditAliases = new System.Windows.Forms.ToolStripButton();
             this.dataGridView = new System.Windows.Forms.DataGridView();
@@ -52,43 +53,52 @@
             // 
             // toolStrip1
             // 
+            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.toolStripOpenFolder,
             this.toolStripRemove,
+            this.toolStripSelectExpired,
             this.toolStripSeparator1,
             this.toolStripEditAliases});
-            resources.ApplyResources(this.toolStrip1, "toolStrip1");
             this.toolStrip1.Name = "toolStrip1";
             // 
             // toolStripOpenFolder
             // 
-            this.toolStripOpenFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             resources.ApplyResources(this.toolStripOpenFolder, "toolStripOpenFolder");
+            this.toolStripOpenFolder.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripOpenFolder.Name = "toolStripOpenFolder";
             this.toolStripOpenFolder.Click += new System.EventHandler(this.toolStripOpenFolder_Click);
             // 
             // toolStripRemove
             // 
-            this.toolStripRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             resources.ApplyResources(this.toolStripRemove, "toolStripRemove");
+            this.toolStripRemove.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
             this.toolStripRemove.Name = "toolStripRemove";
             this.toolStripRemove.Click += new System.EventHandler(this.toolStripRemove_Click);
             // 
+            // toolStripSelectExpired
+            // 
+            resources.ApplyResources(this.toolStripSelectExpired, "toolStripSelectExpired");
+            this.toolStripSelectExpired.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
+            this.toolStripSelectExpired.Name = "toolStripSelectExpired";
+            this.toolStripSelectExpired.Click += new System.EventHandler(this.toolStripSelectExpired_Click);
+            // 
             // toolStripSeparator1
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
             resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
             // 
             // toolStripEditAliases
             // 
+            resources.ApplyResources(this.toolStripEditAliases, "toolStripEditAliases");
             this.toolStripEditAliases.Alignment = System.Windows.Forms.ToolStripItemAlignment.Right;
             this.toolStripEditAliases.DisplayStyle = System.Windows.Forms.ToolStripItemDisplayStyle.Text;
-            resources.ApplyResources(this.toolStripEditAliases, "toolStripEditAliases");
             this.toolStripEditAliases.Name = "toolStripEditAliases";
             this.toolStripEditAliases.Click += new System.EventHandler(this.toolStripEditAliases_Click);
             // 
             // dataGridView
             // 
+            resources.ApplyResources(this.dataGridView, "dataGridView");
             this.dataGridView.AllowUserToAddRows = false;
             this.dataGridView.AllowUserToDeleteRows = false;
             this.dataGridView.AutoGenerateColumns = false;
@@ -101,7 +111,6 @@
             this.contentKeysNotValidAfterDataGridViewTextBoxColumn,
             this.filenameShortDataGridViewTextBoxColumn});
             this.dataGridView.DataSource = this.kdMessagesBindingSource;
-            resources.ApplyResources(this.dataGridView, "dataGridView");
             this.dataGridView.Name = "dataGridView";
             this.dataGridView.ReadOnly = true;
             this.dataGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -194,6 +203,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn contentKeysNotValidBeforeDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn contentKeysNotValidAfterDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn filenameShortDataGridViewTextBoxColumn;
+        private System.Windows.Forms.ToolStripButton toolStripSelectExpired;
     }
 }
 
