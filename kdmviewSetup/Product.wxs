@@ -36,11 +36,11 @@
                 WorkingDirectory="INSTALLFOLDER"/>
       <RegistryValue Root="HKCU" Key="Software\kinotehnik.net\kdmview" Name="installed" Type="integer" Value="1" KeyPath="yes"/>
     </Component>
-    <Component Id="kdmviewBinRu" Directory="kdmviewRu">
+    <!--<Component Id="kdmviewBinRu" Directory="kdmviewRu">
       <File Id="kdmview.resources.dll.ru" 
             Name="kdmview.resources.dll" 
             Source="$(var.SolutionDir)\kdmview\bin\Release\ru\kdmview.resources.dll"/>
-    </Component>
+    </Component>-->
     <Component Id="kdmviewBinUk" Directory="kdmviewUk">
       <File Id="kdmview.resources.dll.uk"
             Name="kdmview.resources.dll"
@@ -52,7 +52,7 @@
 				<!-- TODO: Insert files, registry keys, and other resources here. -->
 			<!-- </Component> -->
       <ComponentRef Id="kdmviewBinaries"/>
-      <ComponentRef Id="kdmviewBinRu"/>
+      <!--<ComponentRef Id="kdmviewBinRu"/>-->
       <ComponentRef Id="kdmviewBinUk"/>
       <ComponentRef Id="ShortcutComponent"/>
     </ComponentGroup>
